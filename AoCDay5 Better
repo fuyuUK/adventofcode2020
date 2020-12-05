@@ -11,14 +11,12 @@ namespace AoCDay5v2
             int[] seatFinder = new int[1024];
             int max = 0;
             int rowNum = 0;
-            int colNum = 0;
 
             for (int i = 0; i < boardingPasses.Length; i++)
             {
                 boardingPasses[i] = boardingPasses[i].Replace('F', '0').Replace('B', '1').Replace('R', '1').Replace('L', '0');
                 rowNum = Convert.ToInt32(boardingPasses[i].Substring(0, 7), 2);
-                colNum = Convert.ToInt32(boardingPasses[i].Substring(7, 3), 2);
-                rowNum = rowNum * 8 + colNum;
+                rowNum = rowNum * 8 + Convert.ToInt32(boardingPasses[i].Substring(7, 3), 2);;
                 if (rowNum>max)
                 {
                     max = rowNum;
